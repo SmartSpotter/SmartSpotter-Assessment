@@ -25,11 +25,10 @@ We bootstrapped a skeleton for you. We covered the authentication part for you a
 
 ## Tooling
 
-- You must use **RSpec** for TDD (focus on acceptance and integration tests)
+
 - You can use **Postman** to test out your API (we **strongly** advice you to use this tool)
 - You can use any convenient gems you may need
 - Your code must be available on **GitHub / Gitlab**
-- The API must be deployed on **Heroku** (Bonus points)
 
 ## Timeline
 
@@ -48,31 +47,29 @@ These instructions will get you a copy of the project up and running on your loc
 Run this command, this might take **a few minutes**
 
 ```
-rbenv install 2.5.5
+rbenv install 3.0.3
 ```
 
 Once the ruby installation is done, run this command to tell the system
-to use the 2.5.5 version by default.
+to use the 3.0.3 version by default.
 
 ```
-rbenv global 2.5.5
+rbenv global 3.0.3
 ```
 
-### Installing Postgresql
+### Installing SQLite
 
-Let's install Postgresql, an open-source robust and production-ready database.
 
 ```
-brew install postgresql
-brew services start postgresql
+brew install sqlite3
 ```
 
 ### Installing Rails
 
-Run the following command to install Rails version 5.2.3
+Run the following command to install Rails version 7.0.3
 
 ```
-gem install rails -v 5.2.3
+gem install rails -v 7.0.3
 ```
 
 ### Setup Project
@@ -102,10 +99,4 @@ Now run the application.
 
 ```
 rails s
-```
-
-Run tests
-
-```
-rspec . -fd
 ```
