@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
     bookings = Booking.all
 
     if bookings
-      render json: { status: 'Success', message: 'Successfuly got all bookings', data: bookings }, status: :ok
+      render json: bookings, status: :ok
     else
       render json: { status: 'Error', message: 'Something went wrong' }, status: :unprocessable_entity
     end
@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
     # Check if user is the owner of the booking
     if current_user. == booking.user_id
       if booking.update_attributes(booking_params) 
-        render json: { status: 'Success', message: 'Updated booking', data: booking }, status: :ok
+        render json: bookings, status: :ok
       else
         render json: { status: 'Error', message: 'Booking not updated', data: booking.Errors }, status: :unprocessable_entity
       end
