@@ -91,3 +91,5 @@ Now run the application.
 ```
 rails s
 ```
+
+Check if all is well by hitting http://localhost:3000/bookings in your browser.
