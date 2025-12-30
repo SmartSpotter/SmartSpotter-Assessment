@@ -5,5 +5,9 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :room
 
-  # Write your code here
+  def overlaps_existing_booking?
+    #Implement the method overlaps_existing_booking? that returns true if the booking overlaps another booking
+
+  end
+
 end

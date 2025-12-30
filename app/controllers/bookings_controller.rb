@@ -8,26 +8,16 @@ class BookingsController < ApplicationController
     bookings = Booking.all
 
     if bookings
-      render json: { status: 'SUCCESS', message: 'Successfuly got all bookings', data: bookings }, status: :ok
+      render json: { status: 'Success', message: 'Successfuly got all bookings', data: bookings }, status: :ok
     else
-      render json: { status: 'ERROR', message: 'Something went wrong' }, status: :unprocessable_entity
+      render json: { status: 'Error', message: 'Something went wrong' }, status: :unprocessable_entity
     end
   end
 
   # POST /rooms/:room_id/bookings
   # Create booking
   def create
-    # Check for dates/times overlapping
-    puts current_user[:id], "CURRENT USER"
-    overlap = Booking.where('end_date > ? AND start_date < ?', booking_params[:start_date], booking_params[:end_date])
-
-    # If room is free, create booking
-    if overlap.length.zero? 
-      booking = Booking.create!(booking_params)
-      render json: { status: 'SUCCESS', message: 'Booking created', data: booking }, status: :ok
-    else
-      render json: { status: 'ERROR', message: 'Cannot create booking, date already booked' }, status: :unprocessable_entity
-    end
+    #Implement the create method that creates a Booking only if it does not overlap with an existing booking
   end
 
   # PATCH bookings/:id
@@ -36,11 +26,11 @@ class BookingsController < ApplicationController
     booking = Booking.find(params[:id])
     
     # Check if user is the owner of the booking
-    if current_user[:id] == booking[:user_id]
+    if current_user. == booking.user_id
       if booking.update_attributes(booking_params) 
-        render json: { status: 'SUCCESS', message: 'Updated booking', data: booking }, status: :ok
+        render json: { status: 'Success', message: 'Updated booking', data: booking }, status: :ok
       else
-        render json: { status: 'ERROR', message: 'Booking not updated', data: booking.errors }, status: :unprocessable_entity
+        render json: { status: 'Error', message: 'Booking not updated', data: booking.Errors }, status: :unprocessable_entity
       end
     end
   end
@@ -53,9 +43,9 @@ class BookingsController < ApplicationController
     # Check if user is the owner of the booking
     if current_user[:id] == booking[:user_id]
       if booking.destroy
-        render json: { status: 'SUCCESS', message: 'Deleted booking', data: booking }, status: :ok
+        render json: { status: 'Success', message: 'Deleted booking', data: booking }, status: :ok
       else
-        render json: { status: 'FAILURE', message: 'Something went wrong' }, status: :unprocessable_entity
+        render json: { status: 'Error', message: 'Something went wrong' }, status: :unprocessable_entity
       end
     end
   end

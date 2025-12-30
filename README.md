@@ -5,36 +5,27 @@ As teams are expanding, we sometimes want to use the same meeting rooms for diff
 In this phase of our transformation into a big evil corporate, we now need a meeting rooms booking application.
 
 # Goal
+We want you to implement the following:
 
-You'll cover some basics about API design and TDD.
-As such, you'll mainly focus on the backend of the application.
-Others will build apps later, using your API as backbone.
+users_controller.rb
 
-The following user stories describe what should be possible to do through this API:
+- Implement the create method that creates a User, only if the signup is an @evil-corp.com email address
 
-- A visitor can sign up (only with an "@evil-corp.com" e-mail address though)
-- A user can book a room, without conflicting times and dates. So you can't book an occupied room.
-- A user can update their own booking
-- A user can cancel their own booking
-- A user can view all of the bookings
-- A user can invite other users to the booking
+booking.rb
 
-# Skeleton
+- Implement the method overlaps_existing_booking? that returns true if the booking overlaps another booking
 
-We bootstrapped a skeleton for you. We covered the authentication part for you and setup some models, controllers, tests and routes. It's up to you to find out where you should continue. Try to test at least one request and one function. Nowadays we don't really test controller actions anymore but mostly the request.
+bookings_controller.rb
 
-## Tooling
+- Implement the create method that creates a Booking only if it does not overlap with an existing booking
 
-
-- You can use **Postman** to test out your API (we **strongly** advice you to use this tool)
-- You can use any convenient gems you may need
-- Your code must be available on **GitHub / Gitlab**
-
-## Timeline
-
-Our employees are expecting to be able to use this app in 1 week. Move fast!
+- Change the index action to not just show a list of bookings but grouped by day in a data structure with the date as key and and array of the bookings on that date as values. Make changes to seeds.rb to generate more bookings in order to test your implementation.
 
 ## Questions
+
+This is based off of an old assesment project we used to use.
+You can use Postman to test the implementation of your create methods. However using postman is not part of the assesment so if you have trouble setting this up, let me know.
+It is also very well possible that you run into issues with this project that are our fault and not yours, so if anything doesn't work as expected, let me know!
 
 Please contact us if you have any questions. There is no right or wrong question and we rather help you than have you get stuck for hours. Feel free to contact Martijn: martijn@smartspotter.com
 
