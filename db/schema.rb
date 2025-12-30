@@ -12,9 +12,8 @@
 
 ActiveRecord::Schema[7.0].define(version: 2020_03_02_120643) do
   create_table "bookings", force: :cascade do |t|
-    t.time "start_time"
-    t.time "end_time"
-    t.date "date"
+    t.datetime "start_date", precision: nil
+    t.datetime "end_date", precision: nil
     t.integer "room_id"
     t.integer "user_id"
     t.datetime "created_at", precision: nil, null: false
